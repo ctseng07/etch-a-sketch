@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Etch-a-Sketch</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
 </head>
 
 <body>
@@ -15,20 +14,26 @@
         <h1>Etch-a-Sketch</h1>
     </header>
     <div class="main">
-        <div class="grid-box">
-        </div>
         <div class="settings">
             <div class="color">
+                <h4>Color Picker</h4>
                 <button class="buttons" id="black">Black</button>
                 <button class="buttons" id="color-picker">Color Pick</button>
                 <button class="buttons" id="rainbow">Rainbow</button>
             </div>
             <div class="reset">
+                <h4>Reset</h4>
                 <button class="buttons" id="eraser">Eraser</button>
                 <button class="buttons" id="clear">Clear</button>
             </div>
+            <div class="scale">
+                <div class="size-value" id="sizeValue">16 x 16</div>
+                <input id="sizeSlider" type="range" value="16" min="1" max="64" />
+            </div>
         </div>
+        <div class="grid-box" id="grid"></div>
     </div>
+    <script src="script.js" defer></script>
 </body>
 
 </html>

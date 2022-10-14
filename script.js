@@ -1,23 +1,33 @@
+const defaultGrid = 16;
+const defaultColor = 'black';
+
+
 //grid-box
-let grid = document.querySelector(".grid-box");
+const gridBox = document.querySelector("#grid");
 
 
 //color selectors
-let color = document.querySelector("#color-pick");
-let black = document.querySelector("#black");
-let rainbow = document.querySelector("#rainbow");
+const color = document.querySelector("#color-picker");
+const black = document.querySelector("#black");
+const rainbow = document.querySelector("#rainbow");
 
 //reset
-let eraser = document.querySelector("#eraser");
-let reset = document.querySelector("#clear");
-
-function refreshPage() {
-    window.location.reload(true);
-}
-reset.addEventListener('click', refreshPage);
+const eraser = document.querySelector("#eraser");
+const reset = document.querySelector("#clear");
 
 
+//grid set up
 function gridSetUp(size) {
-    grid.getElementsByClassName.gridTemplateColumns = `repeat(${size}, 1fr)`
-    grid.getElementsByClassName.gridTemplateRows = `repeat(${size}, 1fr)`
+    for (let i = 0; i < size ** 2; i++) {
+        let grid = document.createElement("div");
+        grid.classList.add('square');
+        grid.style.backgroundColor = 'white';
+        gridBox.appendChild(grid);
+    }
+    gridBox.style.gridTemplateColumns = `repeat(16, auto)`;
+    gridBox.style.gridTemplateRows = `repeat(16, auto)`;
 }
+
+gridSetUp(defaultGrid)
+
+//default color pick

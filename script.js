@@ -31,3 +31,19 @@ function gridSetUp(size) {
 gridSetUp(defaultGrid)
 
 //default color pick
+grid.addEventListener("mousedown", (event) => {
+    event.target.style.backgroundColor = "#363636";
+});
+// grid.addEventListener("mouseover", (event) => {
+//     event.target.style.backgroundColor = "#363636";
+// });
+
+
+//clear button
+function refreshPage() {
+    window.location.reload(true);
+}
+reset.addEventListener('click', refreshPage);
+
+
+// console.log(gridBox);

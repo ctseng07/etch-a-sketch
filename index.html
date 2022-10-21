@@ -17,8 +17,9 @@
         <div class="settings">
             <div class="color">
                 <h4>Color Picker</h4>
+                <input onInput="draw_color = this.value" type="color" class="color-picker">
                 <button class="buttons" id="black">Black</button>
-                <button class="buttons" id="color-picker">Color Pick</button>
+                <!-- <button class="buttons" id="color-picker">Color Pick</button> -->
                 <button class="buttons" id="rainbow">Rainbow</button>
             </div>
             <div class="reset">
@@ -27,8 +28,8 @@
                 <button class="buttons" id="clear">Clear</button>
             </div>
             <div class="scale">
-                <div class="size-value" id="sizeValue">16 x 16</div>
                 <input id="sizeSlider" type="range" value="16" min="1" max="64" />
+                <div class="size-value" id="sizeValue">16 x 16</div>
             </div>
         </div>
         <div class="grid-box" id="grid"></div>

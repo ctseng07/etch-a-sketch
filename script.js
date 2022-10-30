@@ -1,30 +1,26 @@
 const rows = 16;
 let defaultColor = '#363636';
 let defaultMode = 'color';
-mouse = false;
 
-let currentSize = rows;
-let currentColor = defaultColor;
-let currentMode = defaultMode;
-
-
-//grid-box
+/////////////////////////////////////////////////////////////
+//*Query Selectors*//
+//Grid Box
 const gridBox = document.querySelector("#grid");
 let slider = document.querySelector("#sizeSlider")
 let output = document.querySelector("#sizeValue");
 
-
-//color selectors
+/////////////////////////////////////////////////////////////
+//Color Selectors
 let colorPicker = document.querySelector("#colorPicker");
 const black = document.querySelector("#black");
 const rainbow = document.querySelector("#rainbow");
 
-//reset
+//Reset
 const eraser = document.querySelector("#eraser");
-const reset = document.querySelector("#clear")
+const reset = document.querySelector("#clear");
 
-
-//grid set up
+/////////////////////////////////////////////////////////////
+//*Default Grid*//
 function gridSetUp(size) {
     for (let i = 0; i < size * size; i++) {
         let grid = document.createElement("div");
@@ -38,39 +34,20 @@ function gridSetUp(size) {
 
 gridSetUp(rows);
 
-// const grids = document.querySelectorAll('.square')
-// grids.forEach(element => {
-//     element.addEventListener('mouseover', (e) => {
-//         e.target.style.backgroundColor = randomColor();
-//         // console.log(e);
-//     })
-// });
 
-// function randomColor() {
-//     let generateColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
-//     return generateColor;
+//color-picker button
+// function setCurrentColor(newColor) {
+//     currentColor = newColor
 // }
-// function setCurrentsize(newsize) {
-//     currentSize = newsize
+// colorPicker.oninput = (e) => setCurrentColor(e.target.value);
+// console.log(newColor);
+// function updateSizeValue(value) {
+//     output.innerHTML = `${value} x ${value}`
 // }
 
-// function changeSize(value) {
-//     setCurrentsize(value)
-//     updateSizeValue(value)
-
-// }
-
-// document.body.addEventListener('mousedown', (this) => {
-//     this.mouse = true;
-// });
-
-// document.body.addEventListener('mouseup', (this) => {
-//     this.mouse = false;
-// });
-
-
-
-// //default color pick
+/////////////////////////////////////////////////////////////
+//*Color Button Settings*//
+//Default Color
 grid.addEventListener("mousedown", (event) => {
     event.target.style.backgroundColor = defaultColor;
 });
@@ -78,31 +55,7 @@ grid.addEventListener("mouseover", (event) => {
     event.target.style.backgroundColor = defaultColor;
 });
 
-
-//color-picker button
-function setCurrentColor(newColor) {
-    currentColor = newColor
-}
-colorPicker.oninput = (e) => setCurrentColor(e.target.value);
-
-
-//rainbow button
-
-
-
-function updateSizeValue(value) {
-    output.innerHTML = `${value} x ${value}`
-}
-//////////////////////////////////////////////////////////////
-//Slider button
-// output.innerHTML = slider.value;
-
-// slider.oninput = function () {
-//     output.innerHTML = this.value;
-// }
-/////////////////////////////////////////////////////////////
-//Color Button Settings
-//Color button
+//Color Picker*//
 
 //Black button
 black.addEventListener("click", () => {
@@ -110,8 +63,13 @@ black.addEventListener("click", () => {
 });
 
 //Rainbow Button
-
-/////////////////////////////////////////////////////////////
+rainbow.addEventListener("click", (e) => {
+    const r = Math.floor(Math.random() * 256)
+    const g = Math.floor(Math.random() * 256)
+    const b = Math.floor(Math.random() * 256)
+    defaultColor = `rgb(${r}, ${g}, ${b})`
+});
+//////////////////////////////////////////////////////
 //*Reset Button Settings*//
 //Eraser Button
 eraser.addEventListener("click", () => {
@@ -125,5 +83,75 @@ reset.addEventListener('click', () => {
         element.style.backgroundColor = "white";
     })
 });
+//////////////////////////////////////////////////////////////
+//*Slider Button*// figure out how change display from single digit to 16 x 16 
+// slider.onmousemove = (e) => updateSizeValue(e.target.value);
+// slider.onchange = (e) => changeSize(e.target.value);
 
-/////////////////////////////////////////////////////////////
+// function changeSize(value) {
+//     setCurrentsize(value);
+//     updateSizeValue(value);
+// }
+
+// function updateSizeValue(value) {
+//     output.innerHTML = `${value} x ${value}`;
+
+output.innerHTML = slider.value;
+
+slider.oninput = function () {
+    output.innerHTML = slider.value;
+};
+
+//////////////////////////////////////////////////////////////
+//**not used **//
+// function randomColor() {
+//     let generateColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+//     return generateColor;
+// }
+// function setCurrentsize(newsize) {
+//     currentSize = newsize
+// }
+
+// function changeSize(value) {
+//     setCurrentsize(value)
+//     updateSizeValue(value)
+// }
+
+// document.body.addEventListener('mousedown', (this) => {
+//     this.mouse = true;
+// });
+
+// document.body.addEventListener('mouseup', (this) => {
+//     this.mouse = false;
+// });
+
+//Rainbow Button
+// function setCurrentMode(newMode) {
+//     currentMode = newMode
+// }
+// rainbow.onclick = () => setCurrentMode('rainbow')
+
+// function changeColor(e) {
+//     if (e.type === "mouseover" && !mouseDown) return
+//     if (currentMode === "rainbow") {
+//         const r = Math.floor(Math.random() * 256)
+//         const g = Math.floor(Math.random() * 256)
+//         const b = Math.floor(Math.random() * 256)
+//         e.target.style.backgroundColor = `rgb(${r}, ${g}, ${b})`
+//     } else if (currentMode === 'color') {
+//         e.target.style.backgroundColor = currentColor
+//     } else if (currentMode === 'eraser') {
+//         e.target.style.backgroundColor = "white"
+//     }
+//     console.log(e);
+// }
+
+//color-picker button
+// function setCurrentColor(newColor) {
+//     currentColor = newColor
+// }
+// colorPicker.oninput = (e) => setCurrentColor(e.target.value);
+// console.log(newColor);
+// function updateSizeValue(value) {
+//     output.innerHTML = `${value} x ${value}`
+

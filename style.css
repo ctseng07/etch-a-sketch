@@ -3,7 +3,7 @@
 } */
 
 body {
-    background-color: darkgoldenrod;
+    background-color: lightgrey;
 }
 
 .main {
@@ -49,9 +49,11 @@ body {
     color: #e5e5e5;
     align-items: center;
     justify-content: center;
+    border-radius: 20px;
+    cursor: pointer;
 }
 
-.scale {
+.color {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -59,6 +61,61 @@ body {
     margin-top: 20px;
     color: #363636;
     font-weight: bold;
+    cursor: pointer;
+}
+
+.settings {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid-box {
+    cursor: pointer;
+}
+
+/* change length of slider bar */
+input[type='range'] {
+    -webkit-appearance: none;
+    background-color: lightgrey;
+    width: 100%;
+}
+
+/* manuipulate the size of the slider bar and round it out */
+input[type='range']::-webkit-slider-runnable-track {
+    height: 10px;
+    border: 1px solid #363636;
+    border-radius: 25px;
+    background: white;
+}
+
+/* replace default slider with new black slider */
+input[type='range']::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 20px;
+    margin-top: -8px;
+    background-color: #363636;
+}
+
+/* input[type='range']::after {
+    content: '64';
+    color: white;
+    font-size: 2rem;
+    position: absolute;
+    left: 80%;
+    top: 26%;
+} */
+
+
+#colorPicker {
+    margin-bottom: 20px;
+    height: 50px;
+    cursor: pointer;
+    background-color: #363636;
+    border: none;
 }
 
 

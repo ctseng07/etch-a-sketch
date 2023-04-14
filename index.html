@@ -16,19 +16,18 @@
     <div class="main">
         <div class="settings">
             <div class="color">
-                <h4>Color Picker</h4>
-                <input onInput="draw_color = this.value" type="color" class="color-picker">
-                <button class="buttons" id="black">Black</button>
-                <!-- <button class="buttons" id="color-picker">Color Pick</button> -->
+                <!-- <h4>Color Picker</h4> -->
+                <input id="colorPicker" type="color" value="#363636">
+                <!-- <button class="buttons" id="color">Color</button> -->
                 <button class="buttons" id="rainbow">Rainbow</button>
-            </div>
-            <div class="reset">
-                <h4>Reset</h4>
+                <!-- </div> -->
+                <!-- <div class="reset">
+                <h4>Reset</h4> -->
                 <button class="buttons" id="eraser">Eraser</button>
                 <button class="buttons" id="clear">Clear</button>
-            </div>
-            <div class="scale">
-                <input id="sizeSlider" type="range" value="16" min="1" max="64" />
+                <!-- </div>
+            <div class="scale"> -->
+                <input id="sizeSlider" type="range" value="16" min="1" max="100" />
                 <div class="size-value" id="sizeValue">16 x 16</div>
             </div>
         </div>
